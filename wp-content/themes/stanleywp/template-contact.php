@@ -50,12 +50,13 @@
         if (!isset($emailTo) || ($emailTo == '') ){
             $emailTo = get_option('admin_email');
         }
-        $subject = '[StanleyWP] From '.$name;
+        $subject = 'Contato Mr. Bulb';
         $body = "Name: $name \n\nEmail: $email \n\nComments: $comments";
         $headers = 'From: '.$name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
 
         //wp_mail($emailTo, $subject, $body, $headers);
-        mail($emailTo,$subject,$body,$headers);
+        wp_mail($emailTo,$subject,$body);
+        
         $emailSent = true;
     }
 
